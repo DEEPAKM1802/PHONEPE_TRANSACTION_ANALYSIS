@@ -12,11 +12,6 @@ import mysql.connector
 from mysql.connector import Error
 from itertools import chain
 import sqlalchemy
-import chart_studio.plotly as py
-import plotly.figure_factory as ff
-import plotly.graph_objects as go
-from plotly.offline import init_notebook_mode, iplot
-from plotly.graph_objs import *
 
 
 # In[2]:
@@ -274,7 +269,7 @@ def update_data(database_username, database_password, database_ip, database_name
 
 
 database_username = 'root'
-database_password = '1802'
+database_password = 'enter your password'
 database_ip       = 'localhost'
 database_name     = 'phonepe_db'
 
@@ -282,30 +277,6 @@ df_cls = get_df()
 df_li = df_cls.get_df_li()
 df_li[0]
 
-
-# In[ ]:
-
-
-data = [go.Bar(x=df_li[0].State, y=df_li[0].Amount)]
-py.iplot(data, filename='jupyter-basic_bar')
-
-
-# In[9]:
-
-
-l = [["a",1,2],["b",2,3],["c",3,4]]
-df = pd.DataFrame(l, columns=["name", "rank","num"])
-df
-
-
-# In[13]:
-
-
-data = [go.Bar(x=df.name, y=df.num)]
-py.offline.iplot(data, filename='jupyter-basic_bar')
-
-
-# In[ ]:
 
 
 
